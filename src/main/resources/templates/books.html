@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Books</title>
@@ -34,15 +34,15 @@
                                 <th>Author</th>
                             </tr>
                             </thead>
-                            <tr>
+                            <tr th:remove="all">
                                 <td>Wheel of Time</td>
                                 <td>Robert Jordan</td>
                             </tr>
-                            <tr>
+                            <tr th:remove="all">
                                 <td>Assassin's Apprentice</td>
                                 <td>Robin Hobb</td>
                             </tr>
-                            <tr>
+                            <tr th:remove="all">
                                 <td>Left Hand of Darkness</td>
                                 <td>Ursula LeGuin</td>
                             </tr>
