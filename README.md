@@ -7,6 +7,8 @@ Add and Edit book -> also add and edit list of authors with each book
 first acceptance test: 
 - [] Display a list of books from the database on localhost:8080
 - [x] Webpage with list of books
+- [] Controller that returns webpage with list of books
+- [] Add thymeleaf to books.html
 - [] Controller that returns a list of bookCommands to webpage
 - [] Service that returns a list of commands to controller
 - [] Converter that converts books to commands in service

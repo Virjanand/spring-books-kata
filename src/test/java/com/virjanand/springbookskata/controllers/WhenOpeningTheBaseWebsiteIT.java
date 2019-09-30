@@ -10,6 +10,6 @@ public class WhenOpeningTheBaseWebsiteIT {
     @Test
     public void showListOfBooks() {
         BookController controller = new BookController();
-        assertThat(controller.showListOfBooks()).isEqualTo("booklist");
+        assertThat(controller.showListOfBooks()).isEqualTo("books");
     }
 }
