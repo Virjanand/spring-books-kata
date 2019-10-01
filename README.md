@@ -15,6 +15,6 @@ first acceptance test:
 - [x] Display list of bookCommands in html
 - [x] Service that returns a list of commands to controller
 - [x] Converter that converts books to bookCommands in service
-- [] Refactor so books are created in a list instead of commands
+- [x] Refactor so books are created in a list instead of commands
 - [] Repository to get books from database for service
 - [] Bootstrap class to populate database

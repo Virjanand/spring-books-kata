@@ -1,6 +1,5 @@
 package com.virjanand.springbookskata.services;
 
-import com.virjanand.springbookskata.commands.BookCommand;
 import com.virjanand.springbookskata.controllers.BookCommandListCreator;
 import com.virjanand.springbookskata.converters.BookToBookCommand;
 import com.virjanand.springbookskata.domain.Book;
@@ -9,7 +8,10 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import static com.virjanand.springbookskata.controllers.BookCommandListCreator.createBookCommand;
+import java.util.List;
+
+import static com.virjanand.springbookskata.controllers.BookCommandListCreator.createBookCommandList;
+import static com.virjanand.springbookskata.controllers.BookCommandListCreator.createBookList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
@@ -25,14 +27,9 @@ public class WhenBookServiceImplIsUsed {
     }
 
     private void setupBookToBookCommand() {
-        connectBookAndBookCommand("Wheel of Time", "Robert Jordan");
-        connectBookAndBookCommand("Assassin's Apprentice", "Robin Hobb");
-    }
-
-    private void connectBookAndBookCommand(String title, String author) {
-        Book book = new Book(title, author);
-        BookCommand bookCommand = createBookCommand(title, author);
-        when(bookToBookCommand.convert(book)).thenReturn(bookCommand);
+        List<Book> books = createBookList();
+        when(bookToBookCommand.convertBooksToBookCommands(books))
+                .thenReturn(createBookCommandList());
     }
 
     @Test
@@ -45,6 +42,6 @@ public class WhenBookServiceImplIsUsed {
     public void convertBooksToBookCommands() {
         BookServiceImpl bookService = new BookServiceImpl(bookToBookCommand);
         bookService.getBookCommands();
-        verify(bookToBookCommand, times(2)).convert(any());
+        verify(bookToBookCommand, times(1)).convertBooksToBookCommands(any());
     }
 }
