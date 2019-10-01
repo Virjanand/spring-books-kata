@@ -13,7 +13,7 @@ first acceptance test:
 - [x] Controller that returns a list of bookCommands to webpage
 - [x] Return a list of strings for book
 - [x] Display list of bookCommands in html
-- [] Service that returns a list of commands to controller
+- [x] Service that returns a list of commands to controller
 - [] Converter that converts books to commands in service
 - [] Repository to get books from database for service
 - [] Bootstrap class to populate database

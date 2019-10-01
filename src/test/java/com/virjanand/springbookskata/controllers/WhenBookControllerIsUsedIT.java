@@ -1,38 +1,31 @@
 package com.virjanand.springbookskata.controllers;
 
-import com.virjanand.springbookskata.services.BookService;
-import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-public class WhenBookControllerIsUsed {
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class WhenBookControllerIsUsedIT {
 
-    @Mock
-    BookService bookService;
-
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-    }
+    @Autowired
+    private BookController bookController;
 
     @Test
     public void showListOfBookCommands() throws Exception {
 
-        BookController bookController = new BookController(bookService);
-        when(bookService.getBookCommands()).thenReturn(BookCommandListCreator.createBookCommandList());
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(bookController).build();
 
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(model().attribute("booklist", BookCommandListCreator.createBookCommandList()))
                 .andExpect(view().name("books"));
-        verify(bookService, times(1)).getBookCommands();
     }
 }
