@@ -11,6 +11,7 @@ first acceptance test:
 - [x] Add thymeleaf to books.html
 - [x] Use webjars for bootstrap and jQuery
 - [] Controller that returns a list of bookCommands to webpage
+- [x] Return a list of strings for book
 - [] Service that returns a list of commands to controller
 - [] Converter that converts books to commands in service
 - [] Repository to get books from database for service
