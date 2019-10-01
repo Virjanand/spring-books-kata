@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import static com.virjanand.springbookskata.controllers.BookCommandListCreator.createBookCommandList;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -25,7 +26,7 @@ public class WhenBookControllerIsUsedIT {
 
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(model().attribute("booklist", BookCommandListCreator.createBookCommandList()))
+                .andExpect(model().attribute("booklist", createBookCommandList()))
                 .andExpect(view().name("books"));
     }
 }

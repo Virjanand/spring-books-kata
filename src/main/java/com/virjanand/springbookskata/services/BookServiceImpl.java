@@ -10,8 +10,8 @@ import java.util.List;
 @Service
 public class BookServiceImpl implements BookService{
 
-    private BookRepository repository;
-    private BookToBookCommand bookToBookCommand;
+    private final BookRepository repository;
+    private final BookToBookCommand bookToBookCommand;
 
     public BookServiceImpl(BookRepository repository, BookToBookCommand bookToBookCommand) {
         this.repository = repository;
