@@ -1,12 +1,14 @@
 package com.virjanand.springbookskata.commands;
 
-import lombok.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
-@ToString
 public class BookCommand {
 
     private String title;

@@ -16,7 +16,7 @@ public class BookCommandListCreator {
         return Arrays.asList(bookCommand, bookCommand2);
     }
 
-    private static BookCommand createBookCommand(String title, String author) {
+    public static BookCommand createBookCommand(String title, String author) {
         BookCommand bookCommand = new BookCommand();
         bookCommand.setTitle(title);
         bookCommand.setAuthor(author);
