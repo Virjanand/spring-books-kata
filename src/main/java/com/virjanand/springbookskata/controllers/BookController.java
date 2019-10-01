@@ -19,7 +19,10 @@ public class BookController {
     }
 
     private List<BookCommand> createBookCommandList() {
-        return asList(createBookCommand("Wheel of Time", "Robert Jordan"));
+        return asList(
+                createBookCommand("Wheel of Time", "Robert Jordan"),
+                createBookCommand("Assassin's Apprentice", "Robin Hobb")
+        );
     }
 
     private BookCommand createBookCommand(String title, String author) {

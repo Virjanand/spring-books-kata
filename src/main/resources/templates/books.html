@@ -17,6 +17,7 @@
 
 </head>
 <body>
+<!--/*@thymesVar id="book" type="com.virjanand.springbookskata.commands.BookCommand"*/-->
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -33,9 +34,9 @@
                                 <th>Author</th>
                             </tr>
                             </thead>
-                            <tr>
-                                <td>Wheel of Time</td>
-                                <td>Robert Jordan</td>
+                            <tr th:each="book : ${booklist}">
+                                <td th:text="${book.title}">Wheel of Time</td>
+                                <td th:text="${book.author}">Robert Jordan</td>
                             </tr>
                             <tr th:remove="all">
                                 <td>Assassin's Apprentice</td>

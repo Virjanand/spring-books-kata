@@ -27,9 +27,15 @@ public class WhenBookControllerIsUsed {
     }
 
     private List<BookCommand> createBookCommandList() {
+        BookCommand bookCommand = createBookCommand("Wheel of Time", "Robert Jordan");
+        BookCommand bookCommand2 = createBookCommand("Assassin's Apprentice", "Robin Hobb");
+        return asList(bookCommand, bookCommand2);
+    }
+
+    private BookCommand createBookCommand(String title, String author) {
         BookCommand bookCommand = new BookCommand();
-        bookCommand.setTitle("Wheel of Time");
-        bookCommand.setAuthor("Robert Jordan");
-        return asList(bookCommand);
+        bookCommand.setTitle(title);
+        bookCommand.setAuthor(author);
+        return bookCommand;
     }
 }
