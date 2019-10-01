@@ -2,19 +2,19 @@ package com.virjanand.springbookskata.services;
 
 import com.virjanand.springbookskata.commands.BookCommand;
 import com.virjanand.springbookskata.converters.BookToBookCommand;
-import com.virjanand.springbookskata.domain.Book;
+import com.virjanand.springbookskata.repositories.BookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static java.util.Arrays.asList;
-
 @Service
 public class BookServiceImpl implements BookService{
 
+    private BookRepository repository;
     private BookToBookCommand bookToBookCommand;
 
-    public BookServiceImpl(BookToBookCommand bookToBookCommand) {
+    public BookServiceImpl(BookRepository repository, BookToBookCommand bookToBookCommand) {
+        this.repository = repository;
         this.bookToBookCommand = bookToBookCommand;
     }
 
@@ -23,9 +23,6 @@ public class BookServiceImpl implements BookService{
     }
 
     private List<BookCommand> createBookCommandList() {
-        return bookToBookCommand.convertBooksToBookCommands(asList(
-                new Book("Wheel of Time", "Robert Jordan"),
-                new Book("Assassin's Apprentice", "Robin Hobb")
-        ));
+        return bookToBookCommand.convertBooksToBookCommands(repository.findAll());
     }
 }

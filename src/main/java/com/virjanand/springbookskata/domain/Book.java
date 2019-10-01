@@ -2,12 +2,23 @@ package com.virjanand.springbookskata.domain;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Getter
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = {"id"})
+@NoArgsConstructor
+@Entity
 public class Book {
-    private final String title;
-    private final String author;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String title;
+    private String author;
 
     public Book(String title, String author) {
         this.title = title;
